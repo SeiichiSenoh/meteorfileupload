@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
+import '../common.js';
 
 //コンストラクタと考えていい
 Template.upload.onCreated(function (){
@@ -21,3 +22,10 @@ Template.upload.events({
   },
 });
 
+Template.list.helpers({
+	test: 'あいうえお',
+	fruits: ['apple','banana','orange'],
+	images(){
+		return Images.find({})
+	} 
+})
