@@ -5,9 +5,26 @@
 <body>
   <h1>Welcome to Meteor Uploader!</h1> 
 {{> upload}}
+{{> list}}
 </body>
 
-<template name="upload">
+<!-- MeteorはBlazeというテンプレートエンジンを使っている
+ -->
+ <template name="upload">
    <input type="text" id="upload_cnt"> <button id="upload"> Upload </button>
  </template>
+
+<template name="list">
+  <p>{{images.count}}</p>
+<!--   <ol>
+  {{#each fruits}}
+    <li>{{this}}</li>
+  {{/each}}
+  </ol>
+ -->  <ol>
+  {{#each images}}
+    <li><img src="{{this.url}}"></li>
+  {{/each}}
+  </ol>
+</template>
 
