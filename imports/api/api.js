@@ -3,6 +3,7 @@ import { Mongo } from 'meteor/mongo';
 import '../../common.js';
 
 Meteor.methods({
+    //ファイルアップロード関数
     'file.upload' (param) {
         // if (Meteor.isServer) {
         //     console.log('Server');
@@ -11,9 +12,10 @@ Meteor.methods({
         // }
         // console.log('param =', param);
 
-        //３回、画像を保存している
-        var msec = 200;
+        //指定回数、画像を保存している
+        var msec = 200; //msec単位で設定
         var i = 1;
+        //指定の時間間隔で指定数、指定画像（今の所２種類）を保存する
         var timer_id = Meteor.setInterval(function () {
             console.log("Uploadeding..." + i + "/" + param);
             Images.insert(process.env.PWD + '/sample' + i % 2 + '.jpg', function(err, fileObj) {

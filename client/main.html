@@ -8,20 +8,23 @@
 {{> list}}
 </body>
 
-<!-- MeteorはBlazeというテンプレートエンジンを使っている
- -->
+<!-- MeteorはBlazeというテンプレートエンジンを使っている-->
+<!-- 数の入力BoxとUploadボタン -->
  <template name="upload">
    <input type="text" id="upload_cnt"> <button id="upload"> Upload </button>
  </template>
 
 <template name="list">
+  <!-- 画像のファイル数 -->
   <p>{{images.count}}</p>
 <!--   <ol>
   {{#each fruits}}
     <li>{{this}}</li>
   {{/each}}
   </ol>
- -->  <ol>
+ -->
+ <!-- 画像のpathと画像のリスト表示を行う。 -->
+ <ol>
   {{#each images}}
     <li>{{this.url}}<img src="{{this.url}}" width="128"></li>
   {{/each}}
